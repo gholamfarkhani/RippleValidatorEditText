@@ -16,8 +16,9 @@ public class RVEValidatorType {
   public final static int BEGIN = 5;
   public final static int END = 6;
   public final static int PHONE = 7;
+  public final static int MAX_LENGTH = 8;
 
   @Retention(RetentionPolicy.SOURCE)
-  @IntDef({EMAIL,EMPTY,EQUAL,MIN_LENGTH,BEGIN,END,PHONE})
+  @IntDef({EMAIL,EMPTY,EQUAL,MIN_LENGTH,MAX_LENGTH,BEGIN,END,PHONE})
   @interface VType{}
 }

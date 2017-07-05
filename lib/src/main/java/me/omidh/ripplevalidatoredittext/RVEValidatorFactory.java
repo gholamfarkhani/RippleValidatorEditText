@@ -29,6 +29,8 @@ public class RVEValidatorFactory {
         return PhoneNumberChecker(error);
       case RVEValidatorType.MIN_LENGTH:
         return MinLengthChecker(error,(int)item);
+      case RVEValidatorType.MAX_LENGTH:
+        return MaxLengthChecker(error,(int)item);
     }
   }
 
@@ -54,6 +56,13 @@ public class RVEValidatorFactory {
     return new RVEValidator(errTxt) {
       @Override public boolean isValid(@NonNull CharSequence text) {
         return ! (text.length() < minLength);
+      }
+    };
+  }
+  private static RVEValidator MaxLengthChecker(final String errTxt,final int minLength){
+    return new RVEValidator(errTxt) {
+      @Override public boolean isValid(@NonNull CharSequence text) {
+        return ! (text.length()> minLength);
       }
     };
   }
